@@ -8,35 +8,40 @@
         Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
     <Grid x:Name="frmMain">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="31*"/>
             <ColumnDefinition Width="66*"/>
             <ColumnDefinition Width="689*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblName" Content="Doughnuts Bake and Sale" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Left" Margin="74,64,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblName" Content="Doughnuts Bake and Sale" FontWeight="Bold" Grid.Column="3" HorizontalAlignment="Left" Margin="74,64,0,0" VerticalAlignment="Top"/>
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" 
-Width="131" Margin="0,26,0,0" Grid.ColumnSpan="3">
+Width="187" Margin="0,26,0,0" Grid.ColumnSpan="4">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="_Doughnuts">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" 
+Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" 
+IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
+
         </Menu>
-        <GroupBox x:Name="gbRaised" Grid.Column="2" Header="Raised" FontWeight="Bold" Margin="64,125,400,199">
+        <GroupBox x:Name="gbRaised" Grid.Column="3" Header="Raised" FontWeight="Bold" Margin="64,125,400,199">
             <Canvas>
                 <Label x:Name="lblGlazedRaised" Content="Glazed" Canvas.Left="10" Canvas.Top="7"/>
                 <TextBox x:Name="txtGlazedRaised" Text="0"  Canvas.Left="78" Canvas.Top="11" TextWrapping="Wrap" Width="63" IsReadOnly="True"/>
                 <Label x:Name="lblSugarRaised" Content="Sugar" Canvas.Left="15" Canvas.Top="38"/>
-                <TextBox x:Name="txtRaisedSugar" Canvas.Left="75" Canvas.Top="41" Text="0" TextWrapping="Wrap" Width="66" IsReadOnly="True"/>
+                <TextBox x:Name="txtSugarRaised" Canvas.Left="75" Canvas.Top="41" Text="0" TextWrapping="Wrap" Width="66" IsReadOnly="True"/>
             </Canvas>
         </GroupBox>
-        <GroupBox x:Name="gbFilled" Grid.Column="2" Header="Filled" FontWeight="Bold" Margin="286,127,181,199">
+        <GroupBox x:Name="gbFilled" Grid.Column="3" Header="Filled" FontWeight="Bold" Margin="286,127,181,199">
             <Canvas>
                 <Label x:Name="lblLemonFilled" Content="Lemon" Canvas.Left="10" Canvas.Top="10"/>
                 <TextBox x:Name="txtLemonFilled" Canvas.Left="89" Canvas.Top="16" Text="0" TextWrapping="Wrap" Width="49" IsReadOnly="True"/>
@@ -46,7 +51,7 @@ Width="131" Margin="0,26,0,0" Grid.ColumnSpan="3">
                 <TextBox x:Name="txtVanillaFilled" Canvas.Left="90" Canvas.Top="67" Text="0" TextWrapping="Wrap" Width="46" IsReadOnly="True"/>
             </Canvas>
         </GroupBox>
-        <GroupBox x:Name="gbSale" Grid.Column="2" Header="Current Sale" FontWeight="Bold" Margin="64,221,181,42">
+        <GroupBox x:Name="gbSale" Grid.Column="3" Header="Current Sale" FontWeight="Bold" Margin="64,221,181,42">
             <Canvas Margin="0,0,-2,0">
                 <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="10" Canvas.Top="10"/>
                 <Label x:Name="lblType" Content="Type" Canvas.Left="121" Canvas.Top="10"/>
